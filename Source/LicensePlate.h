@@ -8,7 +8,8 @@
 
 class LicensePlate {
 	public:
-		LicensePlate(const std::string& country = "",
+		LicensePlate(int id,
+					 const std::string& country = "",
 					 const std::string& state = "",
 					 const std::string& base = "",
 					 int yearOfFirstIssue = 0,
@@ -18,7 +19,8 @@ class LicensePlate {
 					 const std::string& expiration = "",
 					 bool sensitive = false,
 					 const std::string& notes = "")
-		: country(country),
+		: id(id),
+		  country(country),
 		  state(state),
 		  base(base),
 		  yearOfFirstIssue(yearOfFirstIssue),
@@ -30,6 +32,9 @@ class LicensePlate {
 		  notes(notes) {
 		  
 		}
+		
+		int getId() const { return id; }
+		void setId(int value) { id = value; }
 		
 		std::string getCountry() const { return country; }
 		void setCountry(const std::string& value) { country = value; }
@@ -52,6 +57,9 @@ class LicensePlate {
 		std::string getCounty() const { return county; }
 		void setCounty(const std::string& value) { county = value; }
 		
+		std::string getExpiration() const { return expiration; }
+		void setExpiration(const std::string& value) { expiration = value; }
+		
 		bool isSensitive() const { return sensitive; }
 		void setSensitive(bool value) { sensitive = value; }
 		
@@ -59,6 +67,7 @@ class LicensePlate {
 		void setNotes(const std::string& value) { notes = value; }
 		
 	private:
+		int id;
 		std::string country;
 		std::string state;
 		std::string base;
